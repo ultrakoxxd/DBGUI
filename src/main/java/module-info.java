@@ -9,6 +9,7 @@ module com.ultrakox.dbgui.dbgui {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires java.sql;
 
     opens com.ultrakox.dbgui.dbgui to javafx.fxml;
     exports com.ultrakox.dbgui.dbgui;
