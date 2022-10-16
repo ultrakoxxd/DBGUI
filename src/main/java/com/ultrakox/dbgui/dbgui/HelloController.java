@@ -28,7 +28,7 @@ public class HelloController {
 
 
         try {
-            Connection connection = DriverManager.getConnection(usernameText, url,passwdText);
+            Connection connection = DriverManager.getConnection(url, usernameText, passwdText);
 
             System.out.println("Connected to database");
         } catch (SQLException e) {
