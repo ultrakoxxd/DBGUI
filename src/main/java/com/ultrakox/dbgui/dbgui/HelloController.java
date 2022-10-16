@@ -30,7 +30,9 @@ public class HelloController {
         try {
             Connection connection = DriverManager.getConnection(url, usernameText, passwdText);
 
+
             System.out.println("Connected to database");
+            DBView.launch();
         } catch (SQLException e) {
             System.out.println("Oops, error!");
             e.printStackTrace();
