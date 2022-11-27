@@ -10,7 +10,6 @@ public class DBViewController {
 @FXML
     TableView<String> DBTable;
 
-@FXML
-    protected void
+
 
 }

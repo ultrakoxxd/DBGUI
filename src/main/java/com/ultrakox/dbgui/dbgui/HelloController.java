@@ -52,7 +52,7 @@ public class HelloController {
             stage.setMaximized(true);
             stage.show();
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `users`");
             while (rs.next()){
                 String name = rs.getString("name");
                 System.out.println(name);

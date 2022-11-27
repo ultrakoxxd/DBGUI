@@ -3,9 +3,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ultrakox.dbgui.dbgui.DBViewController">
+<Pane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../../../style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ultrakox.dbgui.dbgui.DBViewController">
    <children>
       <TableView layoutX="406.0" layoutY="266.0" prefHeight="800.0" prefWidth="1500.0" />
-      <HBox layoutX="406" layoutY="300" prefHeight="100.0" prefWidth="1500.0" />
+      <HBox layoutX="406" layoutY="214.0" prefHeight="46.0" prefWidth="1500.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="81.0" style="-fx-background-image: url('rotate-left.jpg');" />
+         </children></HBox>
    </children>
 </Pane>
