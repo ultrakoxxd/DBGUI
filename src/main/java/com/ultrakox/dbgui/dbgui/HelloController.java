@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.*;
 
 public class HelloController {
     private Stage stage;
@@ -24,19 +26,22 @@ public class HelloController {
 
     @FXML
      PasswordField passwd;
+    @FXML
+     Label ERROR;
 
-
+    @FXML
+    TextField ip;
 
     @FXML
     public void onSubmitLoginButton(ActionEvent event) throws IOException {
         String usernameText = username.getText();
         String passwdText = passwd.getText();
 
-        String url = "jdbc:mysql://localhost:3306/GuiTest";
+        String ipString = ip.getText();
 
 
         try {
-            Connection connection = DriverManager.getConnection(url, usernameText, passwdText);
+            Connection connection = DriverManager.getConnection("jdbc:mysql://" + ipString, usernameText, passwdText);
 
             System.out.println("Connected to database");
 
@@ -46,9 +51,18 @@ public class HelloController {
             stage.setScene(scene);
             stage.setMaximized(true);
             stage.show();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+            while (rs.next()){
+                String name = rs.getString("name");
+                System.out.println(name);
+
+            }
         } catch (SQLException e) {
             System.out.println("Oops, error!");
+            ERROR.setText("Oops, error. Check database, ip, username and password!");
             e.printStackTrace();
         }
     }
+
 }
